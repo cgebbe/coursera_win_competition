@@ -1,0 +1,27 @@
+notes on catboost
+
+model = CatBoostClassifier
+	iterations = ...
+	learning_rate = ...
+	custom_loss=['Accuracy'] # AUC
+	eval_metric='Accurcay' --> If set, shrinks model afterwards
+	
+	train_dir= '' # ???
+	save_snapshot=True # Automatically continue training from last step
+	snapshot_file='dummy.bkp' 
+	
+model.fit
+	cat_features= list of categorical features
+	eval_set=(X_val, y_val)
+	plot=True --> creates awesome plot in jupyter
+	logging_level=Silent
+	
+cv_data = cv --> automatic cross validation
+	params = {...} # passed to CatBoostClassifier
+	fold_count=5
+	stratified=True,
+	plot=True
+	...
+	
+model.get_feature_importance(prettified=True)
+-->
